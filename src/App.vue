@@ -76,6 +76,9 @@
         </div>
       </div>
     </div>
+    {{ allMovies }}
+    <hr />
+    {{ allNominatedMovies }}
   </div>
 </template>
 
@@ -132,11 +135,14 @@ export default {
       }
     },
     allMovies() {
-      return this.$store.getters.allMovies[0];
+      return this.$store.getters.allMovies;
     },
     allMoviesCount() {
       let moviesCount = this.$store.getters.allMovies.length;
       return moviesCount;
+    },
+    allNominatedMovies() {
+      return this.$store.getters.getNominatedMovies;
     },
   },
 };

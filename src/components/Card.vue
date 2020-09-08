@@ -67,16 +67,13 @@ export default {
   },
   data() {
     return {
-      clicked: false,
     };
   },
   methods: {
     nominateMovie() {
-      this.clicked = true;
       this.$store.commit("addMovie", this.movie);
     },
     unNominateMovie() {
-      this.clicked = false;
       this.$store.commit("removeMovie", this.movie.imdbID);
     },
   },

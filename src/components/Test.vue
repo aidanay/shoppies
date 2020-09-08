@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     allMovies() {
-      return this.$store.getters.allMovies[0];
+      return this.$store.getters.allMovies;
     },
   },
 };
