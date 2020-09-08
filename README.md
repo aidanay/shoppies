@@ -1,10 +1,10 @@
 # Shopify Intern Web Development 'Shoppies' Challenge
-## Live demo: https://cocky-fermi-5f529f.netlify.app/
+### Live demo: https://cocky-fermi-5f529f.netlify.app/
 ### By Aidan A.
 
 
-# Vue Project Notes
-## Project setup
+ 
+## Vue Project Notes Project setup
 ```
 npm install
 ```
