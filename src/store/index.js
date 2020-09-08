@@ -9,14 +9,7 @@ export default new Vuex.Store({
     nominatedMovies: [],
   },
   mutations: {
-    // sync
     addAllMovies(state, payload) {
-      // state.allMovies.push(payload) // gets double bracket array
-
-      // for (let i = 0; i < payload.length; i++) {
-      //   state.allMovies.push(payload[i])
-      // } // gets single bracket array
-
       const moviesArr = []
       for (let i = 0; i < payload.length; i++) {
         moviesArr.push(payload[i])
@@ -36,10 +29,6 @@ export default new Vuex.Store({
       state.nominatedMovies.splice(index, 1)
     },
   },
-  actions: {
-    // async
-  },
-  modules: {},
   getters: {
     getNominatedMovies: (state) => state.nominatedMovies,
     allMovies: (state) => state.allMovies,

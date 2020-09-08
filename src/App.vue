@@ -21,7 +21,7 @@
             id="searchbar"
             type="text"
             v-model="search"
-            class="flex-1 border rounded px-4 py-2 ml-2 w-1/2"
+            class="flex-1 border border-gray-400 text-gray-700 rounded px-4 py-2 ml-2 w-1/2"
             placeholder="Type movie title here"
           />
         </div>
@@ -137,9 +137,6 @@ export default {
     allMoviesCount() {
       let moviesCount = this.$store.getters.allMovies.length;
       return moviesCount;
-    },
-    allNominatedMovies() {
-      return this.$store.getters.getNominatedMovies;
     },
   },
 };

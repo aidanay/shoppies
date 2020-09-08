@@ -1,5 +1,8 @@
 <template>
-  <div id="card" class="bg-gray-200 rounded border">
+  <div
+    id="card"
+    class="bg-white rounded border-l border-r border-t border-gray-400"
+  >
     <div class="w-48 overflow-hidden rounded">
       <img
         class="w-48 h-56 object-fill"
@@ -25,7 +28,7 @@
             <button
               :id="`nominate-button-${movie.imdbID}`"
               type="button"
-              class="py-2 border-blue-200 font-semibold bg-blue-200 hover:bg-blue-300 flex-auto"
+              class="py-2 bg-blue-100 hover:bg-blue-200 border border-blue-400 rounded font-semibold text-blue-700 flex-auto"
               @click="nominateMovie"
             >
               Nominate
@@ -34,7 +37,7 @@
           <div id="nominate-button-unclickable" v-else class="flex">
             <button
               type="button"
-              class="py-2 border-blue-200 font-semibold bg-blue-200 hover:bg-blue-300 opacity-50 cursor-not-allowed flex-auto"
+              class="py-2 bg-blue-100 border border-blue-400 rounded font-semibold text-blue-700 opacity-50 cursor-not-allowed flex-auto"
             >
               Nominate
             </button>
@@ -45,7 +48,7 @@
           <div v-show="!nominateOrNot" class="flex">
             <button
               type="button"
-              class="py-2 border-red-200 font-semibold bg-red-200 hover:bg-red-300 flex-auto"
+              class="py-2 bg-red-100 hover:bg-red-200 border border-red-400 rounded font-semibold text-red-700 flex-auto"
               @click="unNominateMovie"
             >
               Un-Nominate
@@ -70,9 +73,6 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {};
-  },
   methods: {
     nominateMovie() {
       this.$store.commit("addMovie", this.movie);
@@ -94,5 +94,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
