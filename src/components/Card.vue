@@ -1,7 +1,7 @@
 <template>
   <div
     id="card"
-    class="bg-white rounded border-l border-r border-t border-gray-400"
+    class="mb-6 bg-white rounded border-l border-r border-t border-gray-400"
   >
     <div class="w-48 overflow-hidden rounded">
       <img
@@ -11,7 +11,7 @@
       />
       <div id="movie-info" class="my-4">
         <h1 id="movie-title" class="font-semibold text-lg w-full text-center">
-          {{ movie.Title }}
+          {{ movie.Title | truncate(17, '...')}}
         </h1>
         <h2 id="movie-release" class="text-center">
           Released: {{ movie.Year }}
@@ -89,6 +89,15 @@ export default {
         return true;
       } else {
         return false;
+      }
+    },
+  },
+  filters: {
+    truncate: function (text, length, suffix) {
+      if (text.length > length) {
+        return text.substring(0, length) + suffix;
+      } else {
+        return text;
       }
     },
   },
