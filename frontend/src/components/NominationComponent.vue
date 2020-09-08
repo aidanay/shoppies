@@ -17,7 +17,6 @@ export default {
     nominatedMovies() {
       return this.$store.getters.getNominatedMovies
     },
-
   },
 }
 </script>
