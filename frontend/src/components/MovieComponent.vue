@@ -6,8 +6,8 @@
     >
       <li
         id="movie-item"
-        v-for="item in moviesList.Search"
-        :key="item"
+        v-for="(item, index) in moviesList.Search"
+        :key="index"
         class="mx-2 rounded"
       >
       <Card :movie="item"/>
