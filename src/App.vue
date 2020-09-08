@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div id="app-wrapper" class="mx-24 my-10">
-      <div id="heading" class="">
+    <div id="app-wrapper" class="mx-24 my-16 lg:mx-40 xl:mx-64">
+      <div id="heading" class="mb-8">
         <h1 class="text-3xl font-semibold text-center mb-2">The Shoppies</h1>
       </div>
       <div
@@ -23,6 +23,7 @@
             v-model="search"
             class="flex-1 border border-gray-400 text-gray-700 rounded px-4 py-2 ml-2 w-1/2"
             placeholder="Type movie title here"
+            @keyup="handle"
           />
         </div>
       </div>
@@ -35,7 +36,7 @@
           <div id="results-wrapper">
             <div v-if="!allMoviesCount" class="flex">
               <div
-                class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative mb-4"
+                class="bg-yellow-100 text-l border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative mb-4"
                 role="alert"
               >
                 <span class="block sm:inline">No results yet.</span>
@@ -55,7 +56,7 @@
           <h1 class="text-xl font-semibold">Nominations</h1>
           <div
             v-show="isDisabled"
-            class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative"
+            class="bg-yellow-100 text-l border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative"
             role="alert"
           >
             <span class="block sm:inline"
@@ -65,7 +66,7 @@
         </div>
         <div v-if="!isEmpty" class="flex">
           <div
-            class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 mb-4 rounded relative"
+            class="bg-yellow-100 text-l border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 mb-4 rounded relative"
             role="alert"
           >
             <span class="block sm:inline">No nominations yet.</span>
@@ -109,6 +110,12 @@ export default {
         });
       } catch (error) {
         console.error(error);
+      }
+    },
+    handle(e) {
+      if (e.keyCode === 13) {
+        this.searchMovies();
+        this.search = "";
       }
     },
   },
