@@ -27,7 +27,17 @@
         <div id="results-wrapper" class="flex-1 bg-white border shadow rounded px-6 py-5 w-1/2">
           <h1 class="text-xl font-semibold">Results</h1>
           <div id="results-wrapper">
-            <MovieComponent :moviesList="moviesList" class="mt-4" />
+            <div v-if="JSON.stringify(moviesList) === '{}'" class="flex">
+              <div
+                class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative mb-4 "
+                role="alert"
+              >
+                <span class="block sm:inline">No results yet.</span>
+              </div>
+            </div>
+            <div v-else>
+              <MovieComponent :moviesList="moviesList" class="mt-4" />
+            </div>
           </div>
         </div>
       </div>
@@ -42,8 +52,17 @@
             <span class="block sm:inline">Reached maximum number of nominations.</span>
           </div>
         </div>
-
-        <NominationComponent class="mt-4" />
+        <div v-if="!isEmpty" class="flex">
+          <div
+            class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 mb-4 rounded relative"
+            role="alert"
+          >
+            <span class="block sm:inline">No nominations yet.</span>
+          </div>
+        </div>
+        <div v-else>
+          <NominationComponent class="mt-4" />
+        </div>
       </div>
     </div>
   </div>
@@ -85,6 +104,15 @@ export default {
         return false
       }
     },
+    isEmpty() {
+      let movies = this.$store.getters.getNominatedMovies
+
+      if (movies.length === 1){
+        return true
+      } else {
+        return false
+      }
+    }
   },
 }
 </script>
