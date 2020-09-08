@@ -34,7 +34,11 @@
       <div id="nominations-wrapper" class="flex-1 bg-white border shadow rounded px-6 py-5 mt-5">
         <div class="flex">
           <h1 class="text-xl font-semibold">Nominations</h1>
-          <div v-show="isDisabled" class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative" role="alert">
+          <div
+            v-show="isDisabled"
+            class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative"
+            role="alert"
+          >
             <span class="block sm:inline">Reached maximum number of nominations.</span>
           </div>
         </div>
