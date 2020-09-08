@@ -13,7 +13,7 @@
           <button
             id="search-button"
             @click="searchMovies"
-            class="px-4 py-2 bg-green-200 hover:bg-green-300 text-black font-semibold border-green-300 rounded"
+            class="px-4 py-2 bg-green-100 hover:bg-green-200 text-green-700 font-semibold border border-green-400 rounded"
           >
             Search!
           </button>

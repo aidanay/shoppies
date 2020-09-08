@@ -15,25 +15,30 @@
         </h2>
       </div>
 
-      <div id="nominate-button-wrapper"></div>
       <div id="button" class="">
-        <div v-show="nominateOrNot" class="flex">
-          <button
-            v-show="!isDisabled"
-            :id="`nominate-button-${movie.imdbID}`"
-            type="button"
-            class="py-2 border-blue-200 font-semibold bg-blue-200 hover:bg-blue-300 flex-auto"
-            @click="nominateMovie"
+        <div id="nominate-button-wrapper" v-show="nominateOrNot">
+          <div
+            id="nominate-button-clickable"
+            v-if="!isDisabled && !movie.isNominated"
+            class="flex"
           >
-            Nominate
-          </button>
-          <button
-            v-show="isDisabled"
-            type="button"
-            class="py-2 border font-semibold bg-blue-200 opacity-50 cursor-not-allowed flex-auto"
-          >
-            Nominate
-          </button>
+            <button
+              :id="`nominate-button-${movie.imdbID}`"
+              type="button"
+              class="py-2 border-blue-200 font-semibold bg-blue-200 hover:bg-blue-300 flex-auto"
+              @click="nominateMovie"
+            >
+              Nominate
+            </button>
+          </div>
+          <div id="nominate-button-unclickable" v-else class="flex">
+            <button
+              type="button"
+              class="py-2 border-blue-200 font-semibold bg-blue-200 hover:bg-blue-300 opacity-50 cursor-not-allowed flex-auto"
+            >
+              Nominate
+            </button>
+          </div>
         </div>
 
         <div id="unnominate-button-wrapper">
@@ -66,8 +71,7 @@ export default {
     },
   },
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     nominateMovie() {
