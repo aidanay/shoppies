@@ -88,7 +88,7 @@ export default {
   methods: {
     async searchMovies() {
       try {
-        let url = `http://www.omdbapi.com/?s=${this.search}&apikey=4c2958ff`
+        let url = `https://www.omdbapi.com/?s=${this.search}&apikey=4c2958ff`
         let config = {
           headers: {
             Accept: 'application/json',
