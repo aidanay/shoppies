@@ -7,6 +7,7 @@
         :key="index"
         class="mx-2 rounded"
       >
+        <!-- {{ item }} -->
         <Card :movie="item" :nominateOrNot="true" />
       </li>
     </ul>
@@ -16,7 +17,7 @@
 <script>
 import Card from "@/components/Card";
 export default {
-  name: "MovieComponent",
+  name: "Test",
   components: {
     Card,
   },

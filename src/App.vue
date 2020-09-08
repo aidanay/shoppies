@@ -4,7 +4,10 @@
       <div id="heading" class="">
         <h1 class="text-3xl font-semibold text-center mb-2">The Shoppies</h1>
       </div>
-      <div id="searchbar-wrapper" class="bg-white border shadow rounded px-5 py-5">
+      <div
+        id="searchbar-wrapper"
+        class="bg-white border shadow rounded px-5 py-5"
+      >
         <label for="searchbar" class="text-xl font-semibold">Movie Title</label>
         <div class="mt-2 flex flex-row">
           <button
@@ -24,24 +27,30 @@
         </div>
       </div>
       <div id="info" class="flex mt-5">
-        <div id="results-wrapper" class="flex-1 bg-white border shadow rounded px-6 py-5 w-1/2">
+        <div
+          id="results-wrapper"
+          class="flex-1 bg-white border shadow rounded px-6 py-5 w-1/2"
+        >
           <h1 class="text-xl font-semibold">Results</h1>
           <div id="results-wrapper">
-            <div v-if="JSON.stringify(moviesList) === '{}'" class="flex">
+            <div v-if="!allMoviesCount" class="flex">
               <div
-                class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative mb-4 "
+                class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative mb-4"
                 role="alert"
               >
                 <span class="block sm:inline">No results yet.</span>
               </div>
             </div>
             <div v-else>
-              <MovieComponent :moviesList="moviesList" class="mt-4" />
+              <MovieComponent class="mt-4" />
             </div>
           </div>
         </div>
       </div>
-      <div id="nominations-wrapper" class="flex-1 bg-white border shadow rounded px-6 py-5 mt-5">
+      <div
+        id="nominations-wrapper"
+        class="flex-1 bg-white border shadow rounded px-6 py-5 mt-5"
+      >
         <div class="flex">
           <h1 class="text-xl font-semibold">Nominations</h1>
           <div
@@ -49,7 +58,9 @@
             class="bg-yellow-100 text-xl border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative"
             role="alert"
           >
-            <span class="block sm:inline">Reached maximum number of nominations.</span>
+            <span class="block sm:inline"
+              >Reached maximum number of nominations.</span
+            >
           </div>
         </div>
         <div v-if="!isEmpty" class="flex">
@@ -69,60 +80,66 @@
 </template>
 
 <script>
-import MovieComponent from '@/components/MovieComponent'
-import NominationComponent from '@/components/NominationComponent'
-import axios from 'axios'
+import MovieComponent from "@/components/MovieComponent";
+import NominationComponent from "@/components/NominationComponent";
+import axios from "axios";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     MovieComponent,
     NominationComponent,
   },
   data() {
     return {
-      search: '',
-      moviesList: {},
-    }
+      search: "",
+    };
   },
   methods: {
     async searchMovies() {
       try {
-        let url = `https://www.omdbapi.com/?s=${this.search}&apikey=4c2958ff`
+        let url = `https://www.omdbapi.com/?s=${this.search}&apikey=4c2958ff`;
         let config = {
           headers: {
-            Accept: 'application/json',
+            Accept: "application/json",
           },
-        }
+        };
         await axios.get(url, config).then((response) => {
-          this.moviesList = response.data
-        })
+          this.$store.commit("addAllMovies", response.data.Search);
+        });
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     },
   },
   computed: {
     isDisabled() {
-      let movies = this.$store.getters.getNominatedMovies
+      let movies = this.$store.getters.getNominatedMovies;
 
       if (movies.length >= 5) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     },
     isEmpty() {
-      let movies = this.$store.getters.getNominatedMovies
+      let movies = this.$store.getters.getNominatedMovies;
 
       if (movies.length >= 1) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     },
+    allMovies() {
+      return this.$store.getters.allMovies[0];
+    },
+    allMoviesCount() {
+      let moviesCount = this.$store.getters.allMovies.length;
+      return moviesCount;
+    },
   },
-}
+};
 </script>
 
 <style></style>

@@ -14,11 +14,13 @@
           Released: {{ movie.Year }}
         </h2>
       </div>
+
+      <div id="nominate-button-wrapper"></div>
       <div id="button" class="">
         <div v-show="nominateOrNot" class="flex">
           <button
             v-show="!isDisabled"
-            id="nominateBtn"
+            :id="`nominate-button-${movie.imdbID}`"
             type="button"
             class="py-2 border-blue-200 font-semibold bg-blue-200 hover:bg-blue-300 flex-auto"
             @click="nominateMovie"
@@ -33,14 +35,17 @@
             Nominate
           </button>
         </div>
-        <div v-show="!nominateOrNot" class="flex">
-          <button
-            type="button"
-            class="py-2 border-red-200 font-semibold bg-red-200 hover:bg-red-300 flex-auto"
-            @click="unNominateMovie"
-          >
-            Un-Nominate
-          </button>
+
+        <div id="unnominate-button-wrapper">
+          <div v-show="!nominateOrNot" class="flex">
+            <button
+              type="button"
+              class="py-2 border-red-200 font-semibold bg-red-200 hover:bg-red-300 flex-auto"
+              @click="unNominateMovie"
+            >
+              Un-Nominate
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -61,13 +66,17 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      clicked: false,
+    };
   },
   methods: {
     nominateMovie() {
+      this.clicked = true;
       this.$store.commit("addMovie", this.movie);
     },
     unNominateMovie() {
+      this.clicked = false;
       this.$store.commit("removeMovie", this.movie.imdbID);
     },
   },

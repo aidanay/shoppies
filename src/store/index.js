@@ -5,10 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    allMovies: [],
     nominatedMovies: [],
   },
   mutations: {
     // sync
+    addAllMovies(state, payload) {
+      state.allMovies.push(payload)
+    },
     addMovie(state, payload) {
       state.nominatedMovies.push(payload)
     },
@@ -23,5 +27,6 @@ export default new Vuex.Store({
   modules: {},
   getters: {
     getNominatedMovies: (state) => state.nominatedMovies,
+    allMovies: (state) => state.allMovies,
   },
 })
