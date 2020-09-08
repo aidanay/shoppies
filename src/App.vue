@@ -99,7 +99,7 @@ export default {
   methods: {
     async searchMovies() {
       try {
-        let url = `https://www.omdbapi.com/?s=${this.search}&apikey=4c2958ff`;
+        let url = `https://www.omdbapi.com/?s=${this.search}&apikey=${process.env.VUE_APP_API_KEY}`;
         let config = {
           headers: {
             Accept: "application/json",
@@ -108,6 +108,8 @@ export default {
         await axios.get(url, config).then((response) => {
           this.$store.commit("addAllMovies", response.data.Search);
         });
+
+        this.search = "";
       } catch (error) {
         console.error(error);
       }
@@ -115,7 +117,6 @@ export default {
     handle(e) {
       if (e.keyCode === 13) {
         this.searchMovies();
-        this.search = "";
       }
     },
   },
