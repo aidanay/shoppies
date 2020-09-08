@@ -3,7 +3,7 @@
 ### By Aidan A.
 
 <p>&nbsp;</p>
-<p>&nbsp;</p>
+
 ## Vue Project setup
 ```
 npm install
