@@ -2,9 +2,9 @@
 ### Live demo: https://cocky-fermi-5f529f.netlify.app/
 ### By Aidan A.
 
-
- 
-## Vue Project Notes Project setup
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+## Vue Project setup
 ```
 npm install
 ```
