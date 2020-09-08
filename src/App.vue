@@ -71,6 +71,7 @@
 <script>
 import MovieComponent from '@/components/MovieComponent'
 import NominationComponent from '@/components/NominationComponent'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -85,13 +86,20 @@ export default {
     }
   },
   methods: {
-    searchMovies() {
-      let url = `http://www.omdbapi.com/?s=${this.search}&apikey=4c2958ff`
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          this.moviesList = data
+    async searchMovies() {
+      try {
+        let url = `http://www.omdbapi.com/?s=${this.search}&apikey=4c2958ff`
+        let config = {
+          headers: {
+            Accept: 'application/json',
+          },
+        }
+        await axios.get(url, config).then((response) => {
+          this.moviesList = response.data
         })
+      } catch (error) {
+        console.error(error)
+      }
     },
   },
   computed: {
@@ -107,12 +115,12 @@ export default {
     isEmpty() {
       let movies = this.$store.getters.getNominatedMovies
 
-      if (movies.length === 1){
+      if (movies.length === 1) {
         return true
       } else {
         return false
       }
-    }
+    },
   },
 }
 </script>
