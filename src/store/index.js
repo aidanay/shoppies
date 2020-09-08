@@ -13,7 +13,7 @@ export default new Vuex.Store({
       state.nominatedMovies.push(payload)
     },
     removeMovie(state, id) {
-      let index = state.nominatedMovies.findIndex((m) => m.id == id)
+      let index = state.nominatedMovies.findIndex((m) => m.imdbID === id)
       state.nominatedMovies.splice(index, 1)
     },
   },

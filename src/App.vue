@@ -10,7 +10,7 @@
           <button
             id="search-button"
             @click="searchMovies"
-            class="px-4 py-2 bg-green-200 hover:bg-green-300 text-black font-semibold border rounded"
+            class="px-4 py-2 bg-green-200 hover:bg-green-300 text-black font-semibold border-green-300 rounded"
           >
             Search!
           </button>
@@ -115,7 +115,7 @@ export default {
     isEmpty() {
       let movies = this.$store.getters.getNominatedMovies
 
-      if (movies.length === 1) {
+      if (movies.length >= 1) {
         return true
       } else {
         return false
