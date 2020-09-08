@@ -44,7 +44,6 @@
         </div>
       </div>
     </div>
-    {{ nomMovies }}
   </div>
 </template>
 
@@ -81,9 +80,6 @@ export default {
       } else {
         return false;
       }
-    },
-    nomMovies() {
-      return this.$store.getters.getNominatedMovies;
     },
   },
 };
