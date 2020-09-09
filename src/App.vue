@@ -3,7 +3,7 @@
     <div id="app-wrapper" class="mx-3 sm:mx-24 my-8 sm:my-16 lg:mx-40 xl:mx-64">
       <div id="heading" class="mb-4">
         <h1 class="text-2xl sm:text-3xl font-semibold text-center mb-2">
-          The Shoppies
+          🏆 The Shoppies 🏆
         </h1>
       </div>
       <div
@@ -11,7 +11,7 @@
         class="bg-white border shadow rounded px-5 py-5"
       >
         <label for="searchbar" class="text-lg sm:text-xl font-semibold"
-          >Movie Title</label
+          >Movie Title 🎥</label
         >
         <div class="mt-2 flex flex-row">
           <button
@@ -36,7 +36,7 @@
           id="results-wrapper"
           class="flex-1 bg-white border shadow rounded px-6 py-5 w-1/2"
         >
-          <h1 class="text-lg sm:text-xl font-semibold">Results</h1>
+          <h1 class="text-lg sm:text-xl font-semibold">Results 🎞️</h1>
           <div id="results-wrapper">
             <div v-if="!allMoviesCount" class="flex">
               <div
@@ -57,7 +57,7 @@
         class="flex-1 bg-white border shadow rounded px-6 py-5 mt-5"
       >
         <div class="">
-          <h1 class="text-xl font-semibold">Nominations</h1>
+          <h1 class="text-xl font-semibold">Nominations 🏆</h1>
         </div>
         <div v-show="isDisabled" class="flex">
           <div
@@ -65,7 +65,7 @@
             role="alert"
           >
             <span class="block sm:inline text-center"
-              >Reached maximum of 5 nominations.</span
+              >Reached max of 5 nominations.</span
             >
           </div>
         </div>
