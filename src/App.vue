@@ -1,19 +1,23 @@
 <template>
   <div id="app">
-    <div id="app-wrapper" class="mx-24 my-16 lg:mx-40 xl:mx-64">
-      <div id="heading" class="mb-8">
-        <h1 class="text-3xl font-semibold text-center mb-2">The Shoppies</h1>
+    <div id="app-wrapper" class="mx-3 sm:mx-24 my-8 sm:my-16 lg:mx-40 xl:mx-64">
+      <div id="heading" class="mb-4">
+        <h1 class="text-2xl sm:text-3xl font-semibold text-center mb-2">
+          The Shoppies
+        </h1>
       </div>
       <div
         id="searchbar-wrapper"
         class="bg-white border shadow rounded px-5 py-5"
       >
-        <label for="searchbar" class="text-xl font-semibold">Movie Title</label>
+        <label for="searchbar" class="text-lg sm:text-xl font-semibold"
+          >Movie Title</label
+        >
         <div class="mt-2 flex flex-row">
           <button
             id="search-button"
             @click="searchMovies"
-            class="px-4 py-2 bg-green-100 hover:bg-green-200 text-green-700 font-semibold border border-green-400 rounded"
+            class="text-base sm:text-l px-4 py-2 bg-green-100 hover:bg-green-200 text-green-700 font-semibold border border-green-400 rounded"
           >
             Search!
           </button>
@@ -32,11 +36,11 @@
           id="results-wrapper"
           class="flex-1 bg-white border shadow rounded px-6 py-5 w-1/2"
         >
-          <h1 class="text-xl font-semibold">Results</h1>
+          <h1 class="text-lg sm:text-xl font-semibold">Results</h1>
           <div id="results-wrapper">
             <div v-if="!allMoviesCount" class="flex">
               <div
-                class="bg-yellow-100 text-l border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative mb-4"
+                class="bg-yellow-100 text-base sm:text-lg border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative mt-4"
                 role="alert"
               >
                 <span class="block sm:inline">No results yet.</span>
@@ -52,21 +56,22 @@
         id="nominations-wrapper"
         class="flex-1 bg-white border shadow rounded px-6 py-5 mt-5"
       >
-        <div class="flex">
+        <div class="">
           <h1 class="text-xl font-semibold">Nominations</h1>
+        </div>
+        <div v-show="isDisabled" class="flex">
           <div
-            v-show="isDisabled"
-            class="bg-yellow-100 text-l border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 rounded relative"
+            class="bg-yellow-100 text-base sm:text-lg border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 mt-4 rounded relative"
             role="alert"
           >
-            <span class="block sm:inline"
-              >Reached maximum number of nominations.</span
+            <span class="block sm:inline text-center"
+              >Reached maximum of 5 nominations.</span
             >
           </div>
         </div>
         <div v-if="!isEmpty" class="flex">
           <div
-            class="bg-yellow-100 text-l border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 mb-4 rounded relative"
+            class="bg-yellow-100 text-base sm:text-lg border border-yellow-400 text-yellow-700 mx-auto px-4 py-3 mt-4 rounded relative"
             role="alert"
           >
             <span class="block sm:inline">No nominations yet.</span>

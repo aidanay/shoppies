@@ -1,7 +1,7 @@
 <template>
   <div
     id="card"
-    class="mb-6 bg-white rounded border-l border-r border-t border-gray-400"
+    class="bg-white rounded border-l border-r border-t border-gray-400"
   >
     <div class="w-48 overflow-hidden rounded">
       <img
