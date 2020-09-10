@@ -104,7 +104,8 @@ export default {
   methods: {
     async searchMovies() {
       try {
-        let url = `https://www.omdbapi.com/?s=${this.search}&apikey=${process.env.VUE_APP_API_KEY}`;
+        let searchTrimmed = this.search.trim()
+        let url = `https://www.omdbapi.com/?s=${searchTrimmed}&apikey=${process.env.VUE_APP_API_KEY}`;
         let config = {
           headers: {
             Accept: "application/json",
