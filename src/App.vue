@@ -3,7 +3,7 @@
     <div id="app-wrapper" class="mx-3 sm:mx-24 my-8 sm:my-10 lg:mx-40 xl:mx-64">
       <div id="heading" class="mb-4">
         <h1 class="text-2xl sm:text-3xl font-semibold text-center mb-2">
-          🏆 The Shoppies 🏆
+          🏆 The Oscars 🏆
         </h1>
       </div>
       <div
